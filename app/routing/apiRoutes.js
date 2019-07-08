@@ -16,12 +16,13 @@ module.exports = function(app) {
 // These data sources hold arrays of information on all possible friends
 // ===============================================================================
 
-
+var friendsData = require("../data/friendsData");
 
 // ===============================================================================
 // ROUTING
 // ===============================================================================
 
+module.exports = function(app) {
 
   // API GET Requests
   // Below code handles when users "visit" a page.
@@ -29,6 +30,9 @@ module.exports = function(app) {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
+  app.get("/api/friends", function(req, res) {
+    res.json(friendsData);
+  });
  
 
   // API POST Requests
@@ -37,7 +41,7 @@ module.exports = function(app) {
   // ...the JSON is pushed to the appropriate JavaScript array
   // ---------------------------------------------------------------------------
 
-
+  app.post("/api/friends", function(req, res) {
     // Note the code here. Our "server" will respond to a user"s survey result
     // Then compare those results against every user in the database.
     // It will then calculate the difference between each of the numbers and the user"s numbers.
@@ -45,6 +49,7 @@ module.exports = function(app) {
     // In the case of multiple users with the same result it will choose the first match.
     // After the test, it will push the user to the database.
 
+    
     // We will use this object to hold the "best match". We will constantly update it as we
     // loop through all of the options
  

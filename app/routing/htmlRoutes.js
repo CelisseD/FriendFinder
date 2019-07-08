@@ -9,14 +9,12 @@ var path = require("path");
 // ROUTING
 // ===============================================================================
 
-
+module.exports = function(app) {
 
   // HTML GET Requests
   // Below code handles when users "visit" a page.
   // In each of the below cases the user is shown an HTML page of content
   // ---------------------------------------------------------------------------
-
-  module.exports = function(app) {
 
     // if the users navs to survey.html or presses survey button, this will respond with the survey questions
     app.get("/survey", function(req,res) {
